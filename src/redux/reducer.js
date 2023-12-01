@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from './constant'
+import { ADD_TO_CART, REMOVE_FROM_CART } from './constant'
  
 export const cartData = (data = [], action) => {
 
@@ -12,6 +12,11 @@ export const cartData = (data = [], action) => {
         case ADD_TO_CART:
             console.warn('ADD_TO_CART action type called', action)
             return [action.data, ...data]
+
+        case REMOVE_FROM_CART:
+            console.warn('REMOVE_FROM_CART action type called', action)
+            data.length = data.length - 1
+            return [...data]
         
         default:
             return data
