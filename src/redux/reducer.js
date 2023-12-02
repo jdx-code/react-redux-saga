@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './constant'
+import { ADD_TO_CART, REMOVE_FROM_CART, EMPTY_CART } from './constant'
  
 export const cartData = (data = [], action) => {
 
@@ -8,6 +8,7 @@ export const cartData = (data = [], action) => {
     // } else {
     //     return "No action matched.."
     // }
+
     switch (action.type) {           
         case ADD_TO_CART:
             console.warn('ADD_TO_CART action type called', action)
@@ -16,6 +17,11 @@ export const cartData = (data = [], action) => {
         case REMOVE_FROM_CART:
             console.warn('REMOVE_FROM_CART action type called', action)
             data.length = data.length - 1
+            return [...data]
+
+        case EMPTY_CART:
+            console.warn('EMPTY_CART action type called', action)
+            data = []
             return [...data]
         
         default:
