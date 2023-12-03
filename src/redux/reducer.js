@@ -16,7 +16,7 @@ export const cartData = (data = [], action) => {
 
         case REMOVE_FROM_CART:
             console.warn('REMOVE_FROM_CART action type called', action)
-            data.length = data.length - 1
+            data.length = data.length ? data.length - 1 : []
             return [...data]
 
         case EMPTY_CART:
