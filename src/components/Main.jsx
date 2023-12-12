@@ -4,10 +4,9 @@ import { productList } from '../redux/productAction'
 
 function Main() {
 
-  const result = useSelector((state) => state)
-  console.warn("redux data in main", result)
-  
   const dispatch = useDispatch()
+  const data = useSelector((state)=>state.productData)
+  console.warn("redux data in main from saga", data)
 
   const product = {
     name: 'I phone',
