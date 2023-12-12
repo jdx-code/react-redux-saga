@@ -1,7 +1,11 @@
 import { addToCart, removeFromCart, emptyCart } from '../redux/action'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { productList } from '../redux/productAction'
 
 function Main() {
+
+  const result = useSelector((state) => state)
+  console.warn("redux data in main", result)
   
   const dispatch = useDispatch()
 
@@ -27,6 +31,11 @@ function Main() {
           <div>
             <button onClick={() => dispatch(emptyCart())}>
                 Empty Cart
+            </button>      
+          </div> 
+          <div>
+            <button onClick={() => dispatch(productList())}>
+                Get Product List
             </button>      
           </div>                       
         </div>        
